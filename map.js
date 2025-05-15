@@ -24,8 +24,8 @@ const map = new mapboxgl.Map({
       source: 'boston_route',
       paint: {
         'line-color': '#FF00FF',  // magenta
-        'line-width': 5,
-        'line-opacity': 0.6
+        'line-width': 3,
+        'line-opacity': 0.4
       },
     });
   
