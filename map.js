@@ -1,5 +1,5 @@
 import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
-
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoiaml5YW1ha2hpamEiLCJhIjoiY21hcHRiZWxoMDI4NjJub2U0b29ob3U3eCJ9.nANVhMVg44u8rXx0KBlXgQ';
 
@@ -47,7 +47,15 @@ const map = new mapboxgl.Map({
           },
     });
 
-
+    try {
+        const jsonurl = 'https://dsc106.com/labs/lab07/data/bluebikes-stations.json';
+        const jsonData = await d3.json(jsonurl);
+        console.log('Loaded JSON Data:', jsonData);
+        const stations = jsonData.data.stations;
+        console.log('Stations Array:', stations);
+      } catch (error) {
+        console.error('Error loading JSON:', error);
+      }
   
     console.log("Bike lanes loaded!");
   });
