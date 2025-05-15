@@ -40,7 +40,11 @@ const map = new mapboxgl.Map({
         id: 'bike-lanes-cambridge',
         type: 'line',
         source: 'cambridge_route',
-        paint: bikeLaneStyle,
+        paint: {
+            'line-color': '#FF00FF',  // magenta
+            'line-width': 3,
+            'line-opacity': 0.4
+          },
     });
 
 
