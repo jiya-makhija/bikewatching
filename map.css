@@ -13,6 +13,27 @@ h1 {
     margin: 1em 0 0.5em 0;
     font-size: 2rem;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  margin-bottom: 1em;
+}
+
+header label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.9em;
+}
+
+header time,
+header em {
+  display: block;
+  text-align: right;
+}
   
 #map {
     position: relative;
@@ -47,9 +68,9 @@ h1 {
 
 .legend {
     display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-block: 1em;
+    justify-content: center;
+    gap: 2em;
+    margin-block: 1.5em;
     font-size: 0.9em;
     width: 80vw;
   }
@@ -57,14 +78,14 @@ h1 {
 .legend > div {
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 0.4em;
 }
 
 .legend > div::before {
     content: "";
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 0.9em;
+    height: 0.9em;
     border-radius: 2px;
     background-color: var(--color);
     --color-departures: steelblue;
