@@ -32,3 +32,7 @@ h1 {
     height: 100%;
     pointer-events: none;
 }
+
+#map svg circle {
+    pointer-events: auto;
+  }
