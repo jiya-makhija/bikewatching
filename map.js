@@ -17,6 +17,11 @@ const map = new mapboxgl.Map({
     const { x, y } = map.project(point);
     return { cx: x, cy: y };
   }
+  let timeFilter = -1; 
+  function formatTime(minutes) {
+    const date = new Date(0, 0, 0, 0, minutes); 
+    return date.toLocaleString('en-US', { timeStyle: 'short' });
+    }
 
   map.on('load', async () => {
     let stations; 
@@ -110,6 +115,27 @@ const map = new mapboxgl.Map({
       map.on('zoom', updatePositions);
       map.on('resize', updatePositions);
       map.on('moveend', updatePositions);
+
+    const timeSlider = document.getElementById('time-slider');
+    const selectedTime = document.getElementById('selected-time');
+    const anyTimeLabel = document.getElementById('any-time');
+
+    function updateTimeDisplay() {
+    timeFilter = Number(timeSlider.value);
+
+    if (timeFilter === -1) {
+        selectedTime.textContent = '';
+        selectedTime.style.display = 'none';
+        anyTimeLabel.style.display = 'block';
+    } else {
+        selectedTime.textContent = formatTime(timeFilter);
+        selectedTime.style.display = 'block';
+        anyTimeLabel.style.display = 'none';
+    }
+    }
+
+timeSlider.addEventListener('input', updateTimeDisplay);
+updateTimeDisplay(); 
   
     } catch (error) {
       console.error('Error loading data', error);
