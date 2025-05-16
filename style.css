@@ -10,19 +10,19 @@ body {
   }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  width: 80vw;
-  margin: 0 auto;
-  gap: 1em;
-}
-
-header label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  
+  header label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
 header time,
 header em {
