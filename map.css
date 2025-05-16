@@ -45,32 +45,35 @@ h1 {
     fill: var(--color);
 }
 
-#map svg circle,
-.legend > div {
-  --color-departures: steelblue;
-  --color-arrivals: darkorange;
-  --color: color-mix(
-    in oklch,
-    var(--color-departures) calc(100% * var(--departure-ratio)),
-    var(--color-arrivals)
-  );
-  background-color: var(--color); 
-  fill: var(--color);
-}
-
 .legend {
-  display: flex;
-  gap: 1px;
-  margin-block: 1em;
-  width: 80vw;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-block: 1em;
+    font-size: 0.9em;
+    width: 80vw;
+  }
+  
+.legend > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
-.legend > div {
-  flex: 1;
-  padding: 0.5em 1em;
-  color: white;
-  text-align: center;
-  font-size: 0.9em;
+.legend > div::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 2px;
+    background-color: var(--color);
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+    );
 }
 
 .legend > div:first-child {
