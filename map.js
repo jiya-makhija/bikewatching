@@ -19,7 +19,7 @@ const map = new mapboxgl.Map({
   }
 
   map.on('load', async () => {
-    let stations; // declared outside try so it works later
+    let stations; 
   
     // Boston
     map.addSource('boston_route', {
