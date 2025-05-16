@@ -24,7 +24,8 @@ header {
 
 header label {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
+  justify-items: start;
   align-items: center;
   gap: 0.5em;
   font-size: 0.9em;
@@ -33,6 +34,11 @@ header label {
 header time,
 header em {
   display: block;
+}
+
+header time {
+  display: block;
+  text-align: right;
 }
   
 #map {
