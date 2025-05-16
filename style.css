@@ -15,10 +15,12 @@ header {
   align-items: baseline;
   width: 80vw;
   margin: 0 auto;
+  justify-content: space-between;
 }
 
 header label {
-  margin-left: auto;
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
 header time,
@@ -26,6 +28,7 @@ header em {
   display: block;
   text-align: right;
 }
+
 #selected-time,
 #any-time {
   display: block;
