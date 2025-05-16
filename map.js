@@ -1,6 +1,8 @@
 import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+const stationFlow = d3.scaleQuantize().domain([0, 1]).range([0, 0.5, 1]);
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoiaml5YW1ha2hpamEiLCJhIjoiY21hcHRiZWxoMDI4NjJub2U0b29ob3U3eCJ9.nANVhMVg44u8rXx0KBlXgQ';
 
 const map = new mapboxgl.Map({
@@ -119,6 +121,9 @@ map.on('load', async () => {
       .attr('stroke-width', 1)
       .attr('opacity', 0.6)
       .style('pointer-events', 'auto')
+      .style('--departure-ratio', (d) =>
+        stationFlow(d.departures / d.totalTraffic)
+      )
       .each(function (d) {
         d3.select(this)
           .append('title')
@@ -151,7 +156,10 @@ map.on('load', async () => {
       circles
         .data(filteredStations, d => d.short_name)
         .join('circle')
-        .attr('r', d => radiusScale(d.totalTraffic));
+        .attr('r', d => radiusScale(d.totalTraffic))
+        .style('--departure-ratio', (d) =>
+          stationFlow(d.departures / d.totalTraffic)
+        );
     }
 
     function updateTimeDisplay() {
