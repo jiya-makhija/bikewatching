@@ -8,3 +8,30 @@ body {
     margin: auto;
     padding: 1em;
   }
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  width: 80vw;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+label {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#selected-time {
+  display: block;
+  font-weight: bold;
+}
+
+#any-time {
+  display: block;
+  font-style: italic;
+  color: gray;
+}  
